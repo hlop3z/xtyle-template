@@ -1,6 +1,6 @@
 import { spawn } from "child_process";
 
-if (process.argv.length < 3) {
+if (process.argv.length < 4) {
   console.error("Usage: npm run start:app <workspace-name>");
   process.exit(1);
 }
