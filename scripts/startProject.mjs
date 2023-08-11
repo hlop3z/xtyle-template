@@ -2,9 +2,7 @@ import AdmZip from "adm-zip";
 import fs from "fs";
 
 if (process.argv.length < 3) {
-  console.error(
-    "Usage: npm run start <workspace-name> <component-name-kebab-case>"
-  );
+  console.error("Usage: npm run start:app <workspace-name>");
   process.exit(1);
 }
 
