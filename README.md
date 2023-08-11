@@ -5,7 +5,7 @@ Requires [PNPM](https://pnpm.io/) to manage the **Package(s)**
 ## Copy
 
 ```sh
-git clone --depth=1 https://github.com/hlop3z/xtyle-template.git
+git clone https://github.com/hlop3z/xtyle-template.git && rm -rf xtyle-template/.git
 ```
 
 ## PNPM
