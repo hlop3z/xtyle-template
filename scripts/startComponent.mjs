@@ -1,7 +1,9 @@
 import { spawn } from "child_process";
 
 if (process.argv.length < 4) {
-  console.error("Usage: npm run start:app <workspace-name>");
+  console.error(
+    "Usage: npm run start <workspace-name> <component-name-kebab-case>"
+  );
   process.exit(1);
 }
 
