@@ -22,18 +22,12 @@ pnpm install
 
 ---
 
-## Start a Project (**Package**)
-
-```sh
-npm run start:app <workspace-name>
-```
-
 ## Start a Component (**Element**)
 
 **Note:** Use "`kebab-case`"
 
 ```sh
-npm run start <workspace-name> <component-name-kebab-case>
+pnpm run start <component-name-kebab-case>
 ```
 
 ---
@@ -41,11 +35,11 @@ npm run start <workspace-name> <component-name-kebab-case>
 ## Dev
 
 ```sh
-npm run dev <workspace-name>
+pnpm run dev
 ```
 
 ## Build
 
 ```sh
-npm run build <workspace-name>
+pnpm run build
 ```

@@ -1,0 +1,15 @@
+$NAME: "myplugin__Button";
+
+.#{$NAME} {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+
+  /* Default Medium button */
+  margin: 6px 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 900;
+}

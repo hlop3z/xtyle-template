@@ -1,25 +1,25 @@
 {
-  "name": "gui-admin",
+  "name": "myplugin",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npm run core:cmd -- dev --workspace",
-    "build": "npm run core:cmd -- build --workspace",
-    "start": "node scripts/startComponent.mjs",
-    "start:app": "node scripts/startProject.mjs",
-    "workspace": "node scripts/workspaces.mjs",
-    "core:cmd": "node scripts/cmd.mjs"
+    "dev": "vite",
+    "preview": "vite preview",
+    "start": "node xtyle_component.mjs",
+    "build": "tsc && vite build && npm run build:rollup && npm run build:xtyle",
+    "build:rollup": "rollup -c",
+    "build:xtyle": "node xtyle_build.mjs"
   },
   "devDependencies": {
-    "rollup": "^3.28.0",
     "@rollup/plugin-terser": "^0.4.3",
-    "adm-zip": "^0.5.10",
     "cssnano": "^6.0.1",
     "postcss": "^8.4.25",
+    "rollup": "^3.28.0",
     "sass": "^1.63.6",
     "typescript": "^5.0.2",
     "vite": "^4.4.0",
-    "xtyle": "^2.2.2"
+    "xtyle": "^2.2.2",
+    "zlib": "^1.0.5"
   }
 }

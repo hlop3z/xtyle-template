@@ -1,0 +1,37 @@
+:root {
+  --scrollbar-width: 8px;
+  --scrollbar-radius: 3px;
+  --hover-opacity: 0.75;
+}
+
+/* Base Backgrounds */
+.base-white {
+  background-color: white;
+}
+
+.base-black {
+  background-color: black;
+}
+
+/* Scrollbar */
+.hover-opacity:hover {
+  opacity: var(--hover-opacity);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-radius: var(--scrollbar-radius);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #90a4ae; /* Scrollbar color */
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Track color */
+}
