@@ -6,13 +6,12 @@ const pkg = JSON.parse(await fs.promises.readFile("./package.json", "utf-8"));
 const packageName = pkg.name.replace(/-/g, "_");
 
 const titleCase = (text) => {
-  const _text = text.replace("-", " ");
+  const _text = text.replace(/-/g, " "); // Use a global replace to replace all occurrences
   return _text
     .toLowerCase()
     .split(" ")
     .map((e) => e.charAt(0).toUpperCase() + e.slice(1))
-    .join(" ")
-    .replace(" ", "");
+    .join("");
 };
 
 const componentName = process.argv[2];
