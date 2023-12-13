@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 0.0.0.0",
     "preview": "vite preview",
     "start": "node xtyle_component.mjs",
     "build": "tsc && vite build && npm run build:rollup && npm run build:xtyle",

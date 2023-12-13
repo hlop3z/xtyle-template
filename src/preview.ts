@@ -24,46 +24,20 @@ xtyle.init(Preview, document.body, router);
  * @Preview
  */
 
+/* Actions */
+console.log("Actions: ", xtyle.action.keys());
+
+/* Directives */
+console.log("Directives: ", Object.keys(xtyle.allDirectives));
+
 /* Globals */
 console.log("Globals: ", xtyle.global);
 
-/* Store */
-console.log("Store: ", xtyle.store);
+/* Models */
+console.log("Models: ", xtyle.models.keys());
 
 /* Routes */
-console.log("Routes: ", Object.keys(xtyle.router.routes));
+console.log("Routes: ", xtyle.router.keys());
 
-/* Directives Keys */
-console.log("Directives: ", Object.keys(xtyle.allDirectives));
-
-/**
- * @Theme
- */
-// Colors
-const Theme = {
-  theme: {
-    // Base
-    none: "transparent",
-    white: "#fff",
-    black: "#000",
-    gray: "#808080",
-    success: "green",
-    danger: "red",
-    warning: "orange",
-    info: "blue",
-    // Theme
-    1: "blue",
-    2: "green",
-    3: "red",
-    4: "purple",
-  },
-  light: {
-    1: "blue",
-    2: "green",
-    3: "red",
-    4: "purple",
-  },
-  dark: {},
-};
-
-xtyle.theme(Theme);
+/* Store */
+console.log("Store: ", xtyle.store);
