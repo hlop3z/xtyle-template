@@ -1,4 +1,7 @@
 // @ts-nocheck
+
+// import "../node_modules/xtyle/dist/index.min.js";
+
 import * as Plugin from "./index.ts";
 import Preview from "./preview/demo.tsx";
 
