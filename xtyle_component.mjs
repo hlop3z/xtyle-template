@@ -4,6 +4,7 @@ import path from "path";
 
 const pkg = JSON.parse(await fs.promises.readFile("./package.json", "utf-8"));
 const packageName = pkg.name.replace(/-/g, "_");
+const componentName = process.argv[2];
 
 const titleCase = (text) => {
   const _text = text.replace(/-/g, " "); // Use a global replace to replace all occurrences
@@ -13,8 +14,6 @@ const titleCase = (text) => {
     .map((e) => e.charAt(0).toUpperCase() + e.slice(1))
     .join("");
 };
-
-const componentName = process.argv[2];
 
 if (!componentName) {
   console.error("Error: Please provide a component name.");
@@ -70,6 +69,18 @@ async function generateFiles(folderPath, fileData) {
     console.log(`File created: ${indexPath}`);
   } catch (error) {
     console.error("Error generating files:", error);
+  }
+}
+function isDirectoryExists(directoryPath) {
+  try {
+    // Attempt to get the stats of the directory
+    const stats = fs.statSync(directoryPath);
+
+    // Check if it's a directory
+    return stats.isDirectory();
+  } catch (error) {
+    // Handle the error (directory does not exist)
+    return false;
   }
 }
 
@@ -153,4 +164,9 @@ sample["docs.tsx"] = `
  */
 `;
 
-generateFiles(destinationFolder, sample);
+// Example usage:
+if (isDirectoryExists(destinationFolder)) {
+  console.log(`Component { ${className} } already exists.`);
+} else {
+  generateFiles(destinationFolder, sample);
+}

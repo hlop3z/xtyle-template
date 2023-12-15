@@ -8,12 +8,38 @@ const packageName = pkg.name.replace(/-/g, "_");
 /**
  * @Declarations
  */
-function componentProps(code) {
-  const clean = (code || "any")
-    .split("export default Props;")[0]
-    .replace("type Props = ", "")
+export const removeSemiColon = (value) => {
+  value = value.trim();
+  return value.endsWith(";") ? value.slice(0, -1) : value;
+};
+
+function parseType(typeString) {
+  // Remove single-line comments
+  const content = typeString.replace(/\/\/.*$/gm, "");
+
+  // Remove multi-line comments
+  const contentWithoutComments = content.replace(
+    /\/\*[\s\S]*?\*\/|\/\/.*/g,
+    ""
+  );
+
+  // Replace export statement and type declaration
+  const propsContent = contentWithoutComments
+    .replace(/export default Props;/, "")
+    .replace(/type Props =/, "")
     .trim();
-  return clean.endsWith(";") ? clean.slice(0, -1) : clean;
+
+  return propsContent || "any";
+}
+
+export function createDeclaration(name, props, docs, esmodule) {
+  const esmCode = esmodule ? "export const " : "";
+  const readDocs = docs ? docs.trim() : "";
+  if (!props) {
+    return "";
+  }
+  const propsText = parseType(props);
+  return `${readDocs}\n${esmCode}${name}: ${propsText}`.trim();
 }
 
 function processDeclaration(subfolderPath) {
@@ -32,9 +58,7 @@ function processDeclaration(subfolderPath) {
     docs = fs.readFileSync(docsFilePath, "utf8");
   }
 
-  return `${docs.trim()}\n${name}: (props: ${componentProps(
-    props
-  )}) => object;`;
+  return createDeclaration(name, props, docs);
 }
 
 function getSubfolders(folderPath) {
@@ -70,6 +94,7 @@ function gzipJsonFiles(filesToInclude, outputFilename) {
 
   const jsonData = {
     name: packageName,
+    package: pkg,
   };
 
   filesToInclude.forEach((filename) => {
