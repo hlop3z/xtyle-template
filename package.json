@@ -1,5 +1,5 @@
 {
-  "name": "myplugin",
+  "name": "plugin_one",
   "private": true,
   "version": "1.0.0",
   "type": "module",

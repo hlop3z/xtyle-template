@@ -68,7 +68,9 @@ function getSubfolders(folderPath) {
     .map((dirent) => dirent.name);
 }
 
-function createDeclarations(componentsFolderPath, outputDir) {
+function createDeclarations(srcFolderPath, outputDir) {
+  const componentsFolderPath = path.join(srcFolderPath, "components");
+  const mainDocsPath = `${srcFolderPath}/app/docs.ts`;
   const subfolders = getSubfolders(componentsFolderPath);
   const subfolderObjects = [];
 
@@ -79,7 +81,13 @@ function createDeclarations(componentsFolderPath, outputDir) {
   });
 
   const allDeclarations = subfolderObjects.join("\n\n").trim();
-  const declarations = `declare const ${packageName}: {\n${allDeclarations}\n};`;
+
+  let mainDocs = "";
+  if (fs.existsSync(mainDocsPath)) {
+    mainDocs = fs.readFileSync(mainDocsPath, "utf8");
+  }
+  const declarations = `${mainDocs}\ndeclare const ${packageName}: {\n${allDeclarations}\n};`;
+
   fs.writeFileSync(`${outputDir}/index.d.ts`, declarations);
 }
 
@@ -124,7 +132,7 @@ function gzipJsonFiles(filesToInclude, outputFilename) {
 function packageXtylePlugin() {
   // Build Declarations
   const distFolderPath = "./dist";
-  const mainFolderPath = "./src/components";
+  const mainFolderPath = "./src";
   createDeclarations(mainFolderPath, distFolderPath);
 
   // Build GZip
