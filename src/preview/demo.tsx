@@ -9,7 +9,10 @@ export default function Demo() {
   return (
     <div>
       <br />
-      <myPlugin.Button>Click Me</myPlugin.Button>
+      <myPlugin.Button theme-color="danger">Click Me</myPlugin.Button>
+      <myPlugin.Button theme-text="success">Click Me</myPlugin.Button>
+      <myPlugin.Button theme-border="info">Click Me</myPlugin.Button>
+      <br />
       <br />
       {LOREM}
     </div>
