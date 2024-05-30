@@ -6,6 +6,7 @@ import Models from "./app/models.ts";
 import Init from "./app/init.ts";
 import Router from "./app/router.ts";
 import Store from "./app/store.ts";
+import Theme from "./app/theme.ts";
 
 /* Components */
 export * from "./components/index.ts";
@@ -18,6 +19,11 @@ export function install(self, option) {
   console.log("Plugin Name", packageName);
   console.log("The Plugin", self);
   console.log("Plugin Options", option);
+
+  // Theme Colors
+  Theme();
+
+  // Segments
   return {
     actions: Actions,
     directives: Directives,
