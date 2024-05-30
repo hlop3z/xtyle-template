@@ -12,14 +12,14 @@
     "build:xtyle": "node xtyle_build.mjs"
   },
   "devDependencies": {
-    "@rollup/plugin-terser": "^0.4.3",
-    "cssnano": "^6.0.1",
-    "postcss": "^8.4.25",
-    "rollup": "^3.28.0",
-    "sass": "^1.63.6",
-    "typescript": "^5.0.2",
-    "vite": "^4.4.0",
-    "xtyle": "^2.2.2",
+    "@rollup/plugin-terser": "^0.4.4",
+    "cssnano": "^6.1.2",
+    "postcss": "^8.4.38",
+    "rollup": "^3.29.4",
+    "sass": "^1.77.3",
+    "typescript": "^5.4.5",
+    "vite": "^4.5.3",
+    "xtyle": "^2.2.14",
     "zlib": "^1.0.5"
   }
 }
