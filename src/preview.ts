@@ -3,7 +3,8 @@
 // import "../node_modules/xtyle/dist/index.min.js";
 
 import * as Plugin from "./index.ts";
-import Preview from "./preview/demo.tsx";
+import Application from "./views/App.tsx";
+import "./views/__init__.ts";
 
 /**
  * @Register <Plugin>
@@ -21,7 +22,7 @@ const router = {
 /**
  * @Render
  */
-xtyle.init(Preview, document.body, router);
+xtyle.init(Application, document.body, router);
 
 /**
  * @Preview
