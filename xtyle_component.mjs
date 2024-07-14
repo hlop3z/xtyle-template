@@ -99,9 +99,7 @@ export default function ${className}(props) {
 `;
 
 sample["style.scss"] = `
-.#{$NAME} {
-  color: red;
-}
+// .#{$NAME} { color: red; }
 `;
 
 sample["props.tsx"] = `
